@@ -1,10 +1,15 @@
-# imawebsite
+# Investment Management Academy Website
 
-A starter website for `imawebsite`.
+A starter shell for the Investment Management Academy student-managed fund website.
 
 ## Files
 
 - `index.html` is the homepage.
+- `about.html`, `portfolio.html`, `people.html`, `placements.html`, and `application.html` are section pages.
 - `assets/styles.css` controls the page design.
 
-You can publish this with GitHub Pages from the repository settings.
+Run locally with:
+
+```powershell
+python -m http.server 8000
+```
