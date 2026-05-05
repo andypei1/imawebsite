@@ -60,25 +60,57 @@
         <div>
           <h2>Members learn the practice of investing by taking part in the work of a fund.</h2>
           <p>
-            IMA members conduct industry research, prepare qualitative and quantitative assessments,
-            present recommendations, complete due diligence, and contribute to portfolio decision
-            making with guidance from directors, peers, and alumni.
+            Founded in 2016, IMA gives Gies students hands-on experience in research, valuation,
+            pitching, portfolio construction, and professional communication.
           </p>
         </div>
       </section>
 
       <section class="metrics" aria-label="Academy highlights">
         <div>
-          <span>$1.8M</span>
+          <span class="count-up" data-count="70" data-decimals="0">70</span>
+          <p>Student members</p>
+        </div>
+        <div>
+          <span class="count-up" data-count="2000000" data-decimals="0" data-prefix="$" data-suffix="+" data-format="comma">$2,000,000+</span>
           <p>Assets under management</p>
         </div>
         <div>
-          <span>65+</span>
-          <p>Members across the academy</p>
+          <span class="count-up" data-count="7.9" data-decimals="1" data-suffix="%">7.9%</span>
+          <p>Annualized returns</p>
         </div>
+      </section>
+
+      <section class="performance-highlight" aria-labelledby="performance-heading">
         <div>
-          <span>100%</span>
-          <p>Managed by students</p>
+          <p class="section-label">Performance</p>
+          <h2 id="performance-heading">A track record measured against small-cap benchmarks.</h2>
+          <p>
+            Since inception, IMA has compounded at 7.9% annualized and returned 78.5%
+            cumulatively. In 2026 YTD, the fund returned 36.2%, compared with 15.1% for
+            the S&P 600.
+          </p>
+          <p class="performance-disclaimer">
+            Performance figures as of May 5, 2026.
+          </p>
+        </div>
+        <div class="performance-stats" aria-label="Selected performance metrics">
+          <article>
+            <span>36.2%</span>
+            <p>IMA 2026 YTD</p>
+          </article>
+          <article>
+            <span>15.1%</span>
+            <p>S&P 600 2026 YTD</p>
+          </article>
+          <article>
+            <span>7.9%</span>
+            <p>Annualized since inception</p>
+          </article>
+          <article>
+            <span>78.5%</span>
+            <p>Cumulative since inception</p>
+          </article>
         </div>
       </section>
 
@@ -116,5 +148,58 @@
         </a>
       </div>
     </footer>
+    <script>
+      (() => {
+        const counters = document.querySelectorAll(".count-up");
+
+        const setValue = (counter, progress) => {
+          const target = Number(counter.dataset.count || "0");
+          const decimals = Number(counter.dataset.decimals || "0");
+          const prefix = counter.dataset.prefix || "";
+          const suffix = counter.dataset.suffix || "";
+          const format = counter.dataset.format || "";
+          const value = target * progress;
+          const formatted = format === "comma"
+            ? Math.round(value).toLocaleString("en-US")
+            : value.toFixed(decimals);
+          counter.textContent = `${prefix}${formatted}${suffix}`;
+        };
+
+        const animateCounter = (counter) => {
+          const duration = 1200;
+          const start = performance.now();
+
+          const tick = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setValue(counter, eased);
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            }
+          };
+
+          requestAnimationFrame(tick);
+        };
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          counters.forEach((counter) => setValue(counter, 1));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+
+        counters.forEach((counter) => {
+          setValue(counter, 0);
+          observer.observe(counter);
+        });
+      })();
+    </script>
   </body>
 </html>
