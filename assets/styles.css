@@ -287,6 +287,18 @@ a {
     url("chicago.jpg") center / cover no-repeat;
 }
 
+.about-hero {
+  background:
+    linear-gradient(90deg, rgba(3, 8, 15, 0.58), rgba(3, 8, 15, 0.28)),
+    url("campus.png") center / cover no-repeat;
+}
+
+.people-hero {
+  background:
+    linear-gradient(90deg, rgba(3, 8, 15, 0.58), rgba(3, 8, 15, 0.28)),
+    url("blockI.jpg") center / cover no-repeat;
+}
+
 .page-hero {
   padding: clamp(76px, 10vw, 136px) clamp(20px, 5vw, 72px);
   background: var(--storm-95);
@@ -295,6 +307,20 @@ a {
 .page-hero-blue {
   color: var(--white);
   background: var(--il-blue);
+}
+
+.page-hero.about-hero {
+  background:
+    linear-gradient(90deg, rgba(19, 41, 75, 0.94), rgba(19, 41, 75, 0.82)),
+    url("campus.png") center / cover no-repeat;
+  background-blend-mode: normal;
+}
+
+.page-hero.people-hero {
+  background:
+    linear-gradient(90deg, rgba(19, 41, 75, 0.94), rgba(19, 41, 75, 0.82)),
+    url("blockI.jpg") center 16% / 92% auto no-repeat;
+  background-blend-mode: normal;
 }
 
 .page-hero h1 {
@@ -334,9 +360,11 @@ a {
 }
 
 .home-hero::after,
+.about-hero::after,
 .admissions-hero::after,
 .portfolio-hero::after,
-.placements-hero::after {
+.placements-hero::after,
+.people-hero::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -372,6 +400,26 @@ a {
   background: url("chicago.jpg") center / cover no-repeat;
   filter: grayscale(1);
   opacity: 0.42;
+  mix-blend-mode: luminosity;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("campus.png") center / cover no-repeat;
+  filter: grayscale(1);
+  opacity: 0.34;
+  mix-blend-mode: luminosity;
+}
+
+.people-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("blockI.jpg") center 16% / 92% auto no-repeat;
+  filter: grayscale(1);
+  opacity: 0.34;
   mix-blend-mode: luminosity;
 }
 
