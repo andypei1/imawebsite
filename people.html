@@ -19,10 +19,18 @@
           <img src="assets/logo.png" alt="">
           <span>Investment Management Academy</span>
         </a>
-        <nav aria-label="Main navigation">
+        <nav class="main-nav" aria-label="Main navigation">
           <a href="about.html">About</a>
           <a href="portfolio.html">Portfolio</a>
-          <a aria-current="page" href="people.html">People</a>
+          <div class="nav-dropdown">
+            <a class="nav-parent" aria-current="page" href="people.html">People</a>
+            <div class="nav-menu" aria-label="People sections">
+              <a href="people/directors/">Directors</a>
+              <a href="people/executive-board/">Executive Board</a>
+              <a href="people/current-members/">Current Members</a>
+              <a href="people/alumni/">Alumni</a>
+            </div>
+          </div>
           <a href="placements.html">Placements</a>
           <a href="application.html">Admissions</a>
         </nav>
@@ -33,14 +41,14 @@
         <p class="kicker">People</p>
         <h1>Directors, student leadership, analysts, and alumni.</h1>
         <p>
-          This page will become the home for the people behind the academy once names, photos, and
-          approved biographical details are ready.
+          Explore the people behind the Investment Management Academy.
         </p>
       </section>
-      <section class="site-links three-links" aria-label="People groups">
-        <a href="#">Directors</a>
-        <a href="#">Executive Board</a>
-        <a href="#">Members and Alumni</a>
+      <section class="site-links people-directory" aria-label="People sections">
+        <a href="people/directors/">Directors</a>
+        <a href="people/executive-board/">Executive Board</a>
+        <a href="people/current-members/">Current Members</a>
+        <a href="people/alumni/">Alumni</a>
       </section>
     </main>
     <footer class="site-footer">
