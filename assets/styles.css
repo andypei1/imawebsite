@@ -477,6 +477,10 @@ h1 {
   padding: clamp(72px, 9vw, 128px) clamp(20px, 5vw, 72px);
 }
 
+.statement + .metrics {
+  margin-top: clamp(-64px, -4vw, -28px);
+}
+
 .statement,
 .people,
 .apply {
@@ -545,7 +549,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(240px, 0.84fr) minmax(0, 1.16fr);
   gap: clamp(32px, 6vw, 88px);
-  align-items: start;
+  align-items: center;
   padding: clamp(72px, 9vw, 118px) clamp(20px, 5vw, 72px);
   background: var(--il-blue);
 }
